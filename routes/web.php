@@ -19,4 +19,5 @@ Route::get('/', function () {
 });
 Route::get('task/completed', [TaskController::class, 'completed'])->name('task.completed');
 Route::get('task/incompleted', [TaskController::class, 'incompleted'])->name('task.incompleted');
+Route::put('/task/{id}/status', [TaskController::class, 'updateStatus']);
 Route::resource('/task', TaskController::class);

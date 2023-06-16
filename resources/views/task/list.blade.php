@@ -37,25 +37,26 @@
 
                     <td class="border px-4 py-2">{{ $task->judul }}</td>
                     <td class="border px-4 py-2">{{ $task->deskripsi }}</td>
-                    <td class="border px-4 py-2">{{ $task->status }}</td>
-                    <div class="col-end-6 text-md ">
-                        <form class="my-1" action="{{ url('task/' . $task->id . '/status') }}" method="post">
-                            @csrf
-                            @method('PUT')
-                            <select class="appearance-none bg-transparent" name="status" id="status">
-                                <option class=" text-black" value="{{ $task->status }}">{{ $task->status }}
-                                </option>
-                                @if ($task->status == 'Belum Kelar')
-                                    <option class=" text-black" value="Completed">Selesai</option>
-                                @else
-                                    <option class=" text-black" value="Incomplete">Belum Kelar</option>
-                                @endif
-                            </select>
-                            <button class="m-auto bg-blue-700 hover:bg-blue-800 p-2 text-white rounded-lg"
-                                type="submit" name="create" id='status'>Update
-                            </button>
-                        </form>
-                    </div>
+                    <td class="border px-4 py-2">
+                        <div class="col-end-6 text-md ">
+                            <form class="my-1" action="{{ url('task/' . $task->id . '/status') }}" method="post">
+                                @csrf
+                                @method('PUT')
+                                <select class="appearance-none bg-transparent" name="status" id="status">
+                                    <option class=" text-black" value="{{ $task->status }}">{{ $task->status }}
+                                    </option>
+                                    @if ($task->status == 'Belum Kelar')
+                                        <option class=" text-black" value="Selesai">Selesai</option>
+                                    @else
+                                        <option class=" text-black" value="Belum Kelar">Belum Kelar</option>
+                                    @endif
+                                </select>
+                                <button class="m-auto bg-blue-700 hover:bg-blue-800 p-2 text-white rounded-lg"
+                                    type="submit" name="create" id='status'>Update
+                                </button>
+                            </form>
+                        </div>
+                    </td>
                     <td class="border px-4 py-2">
                         <div class="flex space-x-4">
                             <div>

@@ -122,4 +122,14 @@ class TaskController extends Controller
         return view('task.list', $data);
 
     }
+
+    public function updateStatus(Request $request, string $id)
+    {
+        $data = [
+            'status' => $request->input('status')
+        ];
+        task::where('id', $id)->update($data);
+        return redirect()->to('task')->with('success', 'Berhasil Mengudpate Status');
+
+    }
 }
